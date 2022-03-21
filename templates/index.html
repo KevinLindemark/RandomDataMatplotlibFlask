@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Sensors</title>
+<meta http-equiv="refresh" content="5">
+{% endblock %}
+
+{% block content %}
+<div class="flexboxContainer">
+    <div class="flexboxContainer2">
+        <div class="headerAlign">
+            <h1>temperature</h1>
+        </div>
+        <img class="charts" src='data:image/png;base64,{{temp}}' />
+    </div>
+    <div class="flexboxContainer2">
+        <div class="headerAlign">
+            <h1>humidity</h1>
+        </div>
+        <img class="charts" src='data:image/png;base64,{{hum}}' />
+    </div>
+</div>
+{% endblock %}
