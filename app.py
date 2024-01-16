@@ -3,6 +3,11 @@ from io import BytesIO
 from flask import Flask, render_template
 from matplotlib.figure import Figure
 import sqlite3
+from threading import Thread
+import insert_random_DHT_data
+
+logger = Thread(target=insert_random_DHT_data.run)
+logger.start()
 
 conn=sqlite3.connect('database.db', check_same_thread=False)
 curs=conn.cursor()
@@ -99,4 +104,4 @@ def sensors():
     return render_template('sensors.html')
 
 if __name__ == "__main__":
-    app.run()
+    app.run("0.0.0.0")
